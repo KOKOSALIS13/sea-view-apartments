@@ -499,56 +499,80 @@ st.markdown(
 
 st.header("Everything you need for a relaxing stay.")
 
-f1, f2, f3 = st.columns(3, gap="large")
+f1, f2, f3 = st.columns(3)
 
 with f1:
+
     st.markdown(
         """
         <div class="feature-box">
-            <div class="feature-icon">🌊</div>
-            <div class="feature-title">By the sea</div>
+
+            <div class="feature-icon">
+                🌊
+            </div>
+
+            <div class="feature-title">
+                By the sea
+            </div>
+
             <div class="feature-text">
                 Approximately 50 metres from the beach,
                 perfect for morning walks, swimming and
                 relaxing beside the Cretan coast.
             </div>
+
         </div>
         """,
         unsafe_allow_html=True,
     )
 
 with f2:
+
     st.markdown(
         """
         <div class="feature-box">
-            <div class="feature-icon">🌅</div>
-            <div class="feature-title">Beautiful views</div>
+
+            <div class="feature-icon">
+                🌅
+            </div>
+
+            <div class="feature-title">
+                Beautiful views
+            </div>
+
             <div class="feature-text">
                 Enjoy views of the sea and surrounding
                 landscape from the apartment and balcony.
             </div>
+
         </div>
         """,
         unsafe_allow_html=True,
     )
 
 with f3:
+
     st.markdown(
         """
         <div class="feature-box">
-            <div class="feature-icon">🚗</div>
-            <div class="feature-title">Free parking</div>
+
+            <div class="feature-icon">
+                🚗
+            </div>
+
+            <div class="feature-title">
+                Free parking
+            </div>
+
             <div class="feature-text">
                 Convenient free parking makes arriving by
                 car and exploring Crete easier.
             </div>
+
         </div>
         """,
         unsafe_allow_html=True,
     )
-
-
-
 
 
 # =========================================================
@@ -808,7 +832,6 @@ if sea_images:
             st.rerun()
 
 
-
 # =========================================================
 # HOSTS
 # =========================================================
@@ -817,12 +840,15 @@ st.divider()
 
 st.markdown(
     '<div class="section-label">YOUR HOSTS</div>',
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 st.header("A warm welcome from Kostas & Maria.")
 
-host_left, host_right = st.columns([1.1, 1], gap="large")
+host_left, host_right = st.columns(
+    [1.1, 1],
+    gap="large"
+)
 
 with host_left:
 
@@ -853,32 +879,17 @@ with host_left:
         """
     )
 
-
 with host_right:
 
     st.markdown(
         """
-        <div style="
-            background:#173b43;
-            border-radius:6px;
-            padding:35px;
-            color:white;
-        ">
+        <div class="host-box">
 
-            <div style="
-                color:white;
-                font-family:Georgia, 'Times New Roman', serif;
-                font-size:27px;
-                margin-bottom:15px;
-            ">
+            <div class="host-title">
                 Feel at home in Crete.
             </div>
 
-            <div style="
-                color:#e5eeee;
-                line-height:1.8;
-                font-size:15px;
-            ">
+            <div class="host-text">
                 Personal hospitality, local knowledge and
                 a relaxed seaside atmosphere — from two
                 hosts who genuinely want you to enjoy
@@ -887,9 +898,8 @@ with host_right:
 
         </div>
         """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
-
 
 
 # =========================================================
@@ -958,8 +968,6 @@ with r2:
         """,
         unsafe_allow_html=True,
     )
-
-
 
 
 # =========================================================
