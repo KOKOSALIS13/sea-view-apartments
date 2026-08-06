@@ -68,7 +68,7 @@ bathroom = get_image("bathroom.jpg")
 bathroom1 = get_image("bathroom1.jpg")
 
 # =========================================================
-# ADVANCED BOUTIQUE CSS (LUXURY HOTEL LOOK)
+# SAND COLOR BACKGROUND & BOUTIQUE CSS
 # =========================================================
 
 st.markdown(
@@ -81,12 +81,10 @@ st.markdown(
     </head>
 
     <style>
-    /* 1. Γενικό Θέμα & Φόντο (Warm Sand & Mineral Tones) */
-    .stApp {
-        background-color: #fcfbfa;
-        background-image: radial-gradient(#e2ded7 0.5px, transparent 0.5px);
-        background-size: 24px 24px;
-        color: #222222;
+    /* 1. Σταθερό Χρώμα Άμμου στο Φόντο σε όλο το Site */
+    html, body, [data-testid="stAppViewContainer"], .stApp {
+        background-color: #f4f0ea !important;
+        color: #222222 !important;
     }
 
     .block-container {
@@ -99,10 +97,10 @@ st.markdown(
 
     #MainMenu, footer { visibility: hidden; }
 
-    /* 2. Τυπογραφία Ξενοδοχείου */
+    /* 2. Τυπογραφία */
     h1, h2, h3 {
         font-family: "Playfair Display", Georgia, serif !important;
-        color: #0f2b30 !important;
+        color: #173b43 !important;
         font-weight: 500 !important;
         letter-spacing: -0.01em !important;
     }
@@ -111,30 +109,30 @@ st.markdown(
     h2 { font-size: 2.4rem !important; margin-bottom: 20px !important; }
     h3 { font-size: 1.5rem !important; }
 
-    p { color: #4a5254; line-height: 1.8; font-size: 15px; }
+    p, label, span { color: #4a5254; line-height: 1.8; font-size: 15px; }
 
     hr {
         border: none;
-        border-top: 1px solid #e8e3db;
+        border-top: 1px solid #dcd4c8;
         margin-top: 45px;
         margin-bottom: 45px;
     }
 
-    /* 3. Κάρτες Παροχών & Reviews με Hover Effect */
+    /* 3. Λευκές Κάρτες για Αντίθεση με το Φόντο Άμμου */
     .feature-box, .review-box {
-        background: #ffffff;
-        border: 1px solid #eae5dd;
+        background: #ffffff !important;
+        border: 1px solid #e2d9cd !important;
         border-radius: 8px;
         padding: 30px;
-        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         min-height: 200px;
     }
 
     .feature-box:hover, .review-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 28px rgba(23, 59, 67, 0.08);
-        border-color: #c9b396;
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(23, 59, 67, 0.08);
+        border-color: #a0784c !important;
     }
 
     .feature-icon { font-size: 27px; margin-bottom: 12px; }
@@ -142,23 +140,23 @@ st.markdown(
     .feature-text { color: #666666; line-height: 1.7; font-size: 14px; }
 
     .host-box {
-        background: #173b43;
+        background: #173b43 !important;
         border-radius: 8px;
         padding: 35px;
-        color: white;
+        color: white !important;
         box-shadow: 0 10px 25px rgba(23, 59, 67, 0.15);
     }
-    .host-title { color: white; font-family: Georgia, serif; font-size: 26px; margin-bottom: 15px; }
-    .host-text { color: #e5eeee; line-height: 1.8; font-size: 15px; }
+    .host-title { color: white !important; font-family: Georgia, serif; font-size: 26px; margin-bottom: 15px; }
+    .host-text { color: #e5eeee !important; line-height: 1.8; font-size: 15px; }
 
     .review-stars { color: #a0784c; font-size: 18px; letter-spacing: 2px; }
     .review-quote { color: #444444; font-size: 15px; line-height: 1.8; font-style: italic; margin-top: 15px; }
     .review-author { color: #777777; font-size: 13px; margin-top: 20px; }
 
-    /* 4. Luxury Metric Cards */
+    /* 4. Luxury Metrics */
     [data-testid="stMetric"] {
-        background: #ffffff;
-        border: 1px solid #eae5dd;
+        background: #ffffff !important;
+        border: 1px solid #e2d9cd !important;
         border-radius: 8px;
         padding: 18px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.02);
@@ -173,7 +171,7 @@ st.markdown(
         font-size: 2rem !important;
     }
 
-    /* 5. Κουμπιά & Link Buttons */
+    /* 5. Κουμπιά */
     .stLinkButton > a, .stButton > button {
         background: #173b43 !important;
         color: white !important;
@@ -194,11 +192,11 @@ st.markdown(
 
     /* 6. Φόρμα Κρατήσεων */
     [data-testid="stForm"] {
-        background: #ffffff;
-        border: 1px solid #eae5dd;
+        background: #ffffff !important;
+        border: 1px solid #e2d9cd !important;
         border-radius: 10px;
         padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.03);
     }
 
     .section-label {
@@ -441,7 +439,6 @@ if apartment_images:
             unsafe_allow_html=True,
         )
 
-        # Quick Navigation Radio Dots
         selected_apt = st.radio(
             "Select Apartment Photo",
             options=range(len(apartment_images)),
@@ -526,7 +523,6 @@ if sea_images:
             unsafe_allow_html=True,
         )
 
-        # Quick Navigation Radio Dots
         selected_sea = st.radio(
             "Select Sea Photo",
             options=range(len(sea_images)),
