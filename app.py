@@ -485,6 +485,7 @@ with experience_right:
             width="stretch"
         )
 
+
 # =========================================================
 # WHY STAY
 # =========================================================
@@ -498,82 +499,54 @@ st.markdown(
 
 st.header("Everything you need for a relaxing stay.")
 
-f1, f2, f3 = st.columns(3)
+f1, f2, f3 = st.columns(3, gap="large")
 
 with f1:
-
     st.markdown(
         """
         <div class="feature-box">
-
-            <div class="feature-icon">
-                🌊
-            </div>
-
-            <div class="feature-title">
-                By the sea
-            </div>
-
+            <div class="feature-icon">🌊</div>
+            <div class="feature-title">By the sea</div>
             <div class="feature-text">
                 Approximately 50 metres from the beach,
                 perfect for morning walks, swimming and
                 relaxing beside the Cretan coast.
             </div>
-
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-
 with f2:
-
     st.markdown(
         """
         <div class="feature-box">
-
-            <div class="feature-icon">
-                🌅
-            </div>
-
-            <div class="feature-title">
-                Beautiful views
-            </div>
-
+            <div class="feature-icon">🌅</div>
+            <div class="feature-title">Beautiful views</div>
             <div class="feature-text">
                 Enjoy views of the sea and surrounding
                 landscape from the apartment and balcony.
             </div>
-
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-
 with f3:
-
     st.markdown(
         """
         <div class="feature-box">
-
-            <div class="feature-icon">
-                🚗
-            </div>
-
-            <div class="feature-title">
-                Free parking
-            </div>
-
+            <div class="feature-icon">🚗</div>
+            <div class="feature-title">Free parking</div>
             <div class="feature-text">
                 Convenient free parking makes arriving by
                 car and exploring Crete easier.
             </div>
-
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
 
 
