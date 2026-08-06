@@ -17,11 +17,9 @@ st.set_page_config(
 if "apartment_slide" not in st.session_state:
     st.session_state.apartment_slide = 0
 
-if "sea_slide" not in st.session_state:
-    st.session_state.sea_slide = 0
-
 AIRBNB_URL_1 = "https://www.airbnb.gr/rooms/559151340688341474"
 MAPS_URL = "https://www.google.com/maps/search/Ammoudara+Heraklion+Crete"
+WHATSAPP_NUMBER = "306900000000"  # Αντικαταστήστε με το πραγματικό τηλέφωνο
 
 # =========================================================
 # PATHS & CACHED IMAGE LOADER
@@ -48,27 +46,23 @@ def get_image(filename):
 
 # Load Images
 hotel = get_image("hotel.jpg")
-
 sea = get_image("sea.jpg")
 sea1 = get_image("sea1.jpg")
 seaview = get_image("seaview.jpg")
 seabynight = get_image("seabynight.jpg")
-
 balcony = get_image("balcony.jpg")
 livingroom = get_image("livingroom.jpg")
 livingroom1 = get_image("livingroom1.jpg")
 livingroom2 = get_image("livingroom2.jpg")
-
 bedroom = get_image("bedroom.jpg")
 bedroom1 = get_image("bedroom1.jpg")
 bedroom2 = get_image("bedroom2.jpg")
-
 kitchen = get_image("kitchen.jpg")
 bathroom = get_image("bathroom.jpg")
 bathroom1 = get_image("bathroom1.jpg")
 
 # =========================================================
-# LUXURY CORPORATE CSS DESIGN
+# LUXURY CORPORATE & CONCIERGE CSS DESIGN
 # =========================================================
 
 st.markdown(
@@ -78,7 +72,7 @@ st.markdown(
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-    /* 1. Global Luxury Dark Slate Background */
+    /* Global Luxury Dark Background */
     html, body, [data-testid="stAppViewContainer"], .stApp {
         background-color: #0b1c1e !important;
         background-image: 
@@ -99,7 +93,7 @@ st.markdown(
 
     #MainMenu, footer { visibility: hidden; }
 
-    /* 2. Corporate Luxury Typography */
+    /* Typography */
     h1, h2, h3 {
         font-family: 'Cinzel', serif !important;
         color: #f4e8c1 !important;
@@ -120,9 +114,9 @@ st.markdown(
         margin-bottom: 45px;
     }
 
-    /* 3. Luxury Navigation Tabs */
+    /* Tabs Styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 12px;
+        gap: 8px;
         background-color: rgba(18, 38, 41, 0.8);
         padding: 8px 12px;
         border-radius: 40px;
@@ -134,10 +128,10 @@ st.markdown(
         border-radius: 30px;
         color: #b8c5c5 !important;
         font-family: 'Montserrat', sans-serif !important;
-        font-size: 12px !important;
+        font-size: 11px !important;
         font-weight: 500 !important;
         letter-spacing: 0.08em !important;
-        padding: 0 24px !important;
+        padding: 0 20px !important;
         background-color: transparent !important;
         border: none !important;
     }
@@ -148,7 +142,7 @@ st.markdown(
         font-weight: 600 !important;
     }
 
-    /* 4. Luxury Cards & Components */
+    /* Cards */
     .corporate-card {
         background: rgba(18, 38, 41, 0.75) !important;
         backdrop-filter: blur(12px);
@@ -162,7 +156,6 @@ st.markdown(
     .corporate-card:hover {
         border-color: #d4af37 !important;
         transform: translateY(-4px);
-        box-shadow: 0 15px 35px rgba(212, 175, 55, 0.08);
     }
 
     .card-title {
@@ -172,7 +165,7 @@ st.markdown(
         margin-bottom: 12px;
     }
 
-    /* 5. Metrics */
+    /* Metrics */
     [data-testid="stMetric"] {
         background: rgba(18, 38, 41, 0.75) !important;
         border: 1px solid rgba(212, 175, 55, 0.2) !important;
@@ -182,14 +175,9 @@ st.markdown(
     }
 
     [data-testid="stMetricLabel"] { color: #d4af37 !important; font-size: 11px !important; letter-spacing: 0.12em; text-transform: uppercase; }
+    [data-testid="stMetricValue"] { color: #ffffff !important; font-family: 'Cinzel', serif; font-size: 2.1rem !important; }
 
-    [data-testid="stMetricValue"] {
-        color: #ffffff !important;
-        font-family: 'Cinzel', serif;
-        font-size: 2.1rem !important;
-    }
-
-    /* 6. Premium Buttons */
+    /* Buttons */
     .stLinkButton > a, .stButton > button {
         background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%) !important;
         color: #0b1c1e !important;
@@ -209,7 +197,28 @@ st.markdown(
         transform: translateY(-2px);
     }
 
-    /* 7. Forms */
+    /* Floating WhatsApp Button Styling */
+    .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #25D366;
+        color: white !important;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 13px;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+        background-color: #20ba5a;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
     [data-testid="stForm"] {
         background: rgba(15, 33, 36, 0.85) !important;
         border: 1px solid rgba(212, 175, 55, 0.25) !important;
@@ -243,7 +252,10 @@ with head_col1:
 
 with head_col2:
     st.write("")
-    st.link_button("VERIFY ON AIRBNB", AIRBNB_URL_1, use_container_width=True)
+    st.markdown(
+        f'<a href="https://wa.me/{WHATSAPP_NUMBER}?text=Hello%20Kostas%20and%20Maria,%20I%20would%20like%20to%20inquire%20about%20a%20reservation." target="_blank" class="whatsapp-btn">💬 CHAT VIA WHATSAPP</a>',
+        unsafe_allow_html=True
+    )
 
 st.divider()
 
@@ -251,10 +263,11 @@ st.divider()
 # MAIN TABBED INTERFACE
 # =========================================================
 
-tab_overview, tab_rooms, tab_experience, tab_reviews, tab_booking = st.tabs([
+tab_overview, tab_rooms, tab_calc, tab_concierge, tab_reviews, tab_booking = st.tabs([
     "OVERVIEW",
     "SUITES & ROOMS",
-    "EXPERIENCE & LOCATION",
+    "RATES CALCULATOR",
+    "DIGITAL CONCIERGE",
     "GUEST REVIEWS",
     "DIRECT RESERVATIONS"
 ])
@@ -281,7 +294,7 @@ with tab_overview:
             • **23 Premium Units** with private balconies & panoramic views  
             • **Prime Location** 50m from beach & 10 mins from Heraklion city center  
             • **Tailored Hospitality** managed directly by Kostas & Maria  
-            • **Best Rate Guarantee** for direct reservations
+            • **Direct Rate Guarantee** 10% lower than third-party platforms
             """
         )
 
@@ -294,7 +307,7 @@ with tab_overview:
     with m1: st.metric("ACCOMMODATION", "23 Suites")
     with m2: st.metric("BEACH DISTANCE", "50 Metres")
     with m3: st.metric("GUEST RATING", "4.68 / 5.0")
-    with m4: st.metric("LOCATION", "Ammoudara")
+    with m4: st.metric("DIRECT DISCOUNT", "-10% OFF")
 
 # ---------------------------------------------------------
 # TAB 2: SUITES & ROOMS
@@ -358,44 +371,111 @@ with tab_rooms:
             )
 
 # ---------------------------------------------------------
-# TAB 3: EXPERIENCE & LOCATION
+# TAB 3: DYNAMIC RATES CALCULATOR
 # ---------------------------------------------------------
-with tab_experience:
-    st.markdown('<div class="section-label">LOCATION & CRETE</div>', unsafe_allow_html=True)
-    st.header("The Ideal Gateway to Heraklion")
+with tab_calc:
+    st.markdown('<div class="section-label">INSTANT QUOTE</div>', unsafe_allow_html=True)
+    st.header("Calculate Your Stay Estimate")
 
-    loc_left, loc_right = st.columns([1, 1], gap="large")
+    calc_col1, calc_col2 = st.columns([1.2, 1], gap="large")
 
-    with loc_left:
-        st.write(
-            """
-            Ammoudara offers a unique blend of serene coastal atmosphere while maintaining 
-            immediate connectivity to Heraklion's business district, international airport, and seaport.
-            """
-        )
+    ROOM_RATES = {
+        "Executive Sea View Apartment": 95,
+        "Standard Double Suite": 75,
+        "Twin Balcony Room": 70,
+        "Family Suite (2-Bedroom)": 120
+    }
 
+    with calc_col1:
+        st.subheader("Select Parameters")
+        room_choice = st.selectbox("Residence Type", list(ROOM_RATES.keys()))
+
+        c_in_calc = st.date_input("Check-in", datetime.now() + timedelta(days=1), key="calc_in")
+        c_out_calc = st.date_input("Check-out", datetime.now() + timedelta(days=6), key="calc_out")
+
+        num_nights = (c_out_calc - c_in_calc).days
+
+    with calc_col2:
+        if num_nights > 0:
+            base_rate = ROOM_RATES[room_choice]
+            standard_total = base_rate * num_nights
+            direct_discount = standard_total * 0.10
+            final_total = standard_total - direct_discount
+
+            st.markdown(
+                f"""
+                <div class="corporate-card" style="border-color:#d4af37;">
+                    <div class="card-title">Estimated Breakdown</div>
+                    <p>Nights Selected: <b>{num_nights} nights</b></p>
+                    <p>Nightly Rate: <b>€{base_rate} / night</b></p>
+                    <p>Standard OTA Price: <span style="text-decoration:line-through; color:#888;">€{standard_total:.2f}</span></p>
+                    <hr style="margin:15px 0;">
+                    <h3 style="color:#d4af37; margin:0;">Direct Rate: €{final_total:.2f}</h3>
+                    <p style="color:#25D366; font-size:12px; margin-top:5px;">✓ Includes 10% Direct Booking Discount</p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.error("Please select a check-out date after the check-in date.")
+
+# ---------------------------------------------------------
+# TAB 4: DIGITAL CONCIERGE & LOCAL GUIDE
+# ---------------------------------------------------------
+with tab_concierge:
+    st.markdown('<div class="section-label">LOCAL EXPERIENCES</div>', unsafe_allow_html=True)
+    st.header("Kostas & Maria's Curated Guide")
+    st.write("Discover the finest local spots near Sea View Apartments, handpicked by your hosts.")
+
+    cg1, cg2, cg3 = st.columns(3, gap="large")
+
+    with cg1:
         st.markdown(
             """
             <div class="corporate-card">
-                <div class="card-title">Key Distances & Connectivity</div>
-                <p>📍 <b>Ammoudara Beach:</b> 50 m (1 min walk)</p>
-                <p>🏛️ <b>Heraklion City Center:</b> 6.0 km (10 mins drive)</p>
-                <p>✈️ <b>Heraklion Airport (HER):</b> 11.0 km (14 mins drive)</p>
-                <p>🏺 <b>Palace of Knossos:</b> 12.0 km (15 mins drive)</p>
-                <p>🍽️ <b>Fine Dining & Markets:</b> 100 m (Walking distance)</p>
+                <div class="card-title">🍽️ Authentic Dining</div>
+                <p><b>Petousis Taverna</b> (400m)</p>
+                <p>Traditional Cretan wood-oven dishes and local meats.</p>
+                <hr style="margin:10px 0;">
+                <p><b>Uncle George Taverna</b> (600m)</p>
+                <p>Fresh seafood and traditional meze right by the beach.</p>
             </div>
             """,
-            unsafe_allow_html=True,
+            unsafe_allow_html=True
         )
-        st.write("")
-        st.link_button("OPEN IN GOOGLE MAPS", MAPS_URL, use_container_width=True)
 
-    with loc_right:
-        map_data = {"lat": [35.3400], "lon": [25.0800]}
-        st.map(map_data, latitude="lat", longitude="lon", zoom=14)
+    with cg2:
+        st.markdown(
+            """
+            <div class="corporate-card">
+                <div class="card-title">🏛️ Cultural Sights</div>
+                <p><b>Palace of Knossos</b> (15 mins drive)</p>
+                <p>The legendary center of the Minoan civilization.</p>
+                <hr style="margin:10px 0;">
+                <p><b>Heraklion Fortress (Koules)</b> (10 mins)</p>
+                <p>Iconic 16th-century Venetian fortress at the harbor.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with cg3:
+        st.markdown(
+            """
+            <div class="corporate-card">
+                <div class="card-title">🏖️ Beaches & Daytrips</div>
+                <p><b>Ammoudara Beach</b> (50m)</p>
+                <p>7km continuous sandy beach with beach bars & watersports.</p>
+                <hr style="margin:10px 0;">
+                <p><b>Agia Pelagia Cove</b> (20 mins drive)</p>
+                <p>Sheltered turquoise bays perfect for snorkeling.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 # ---------------------------------------------------------
-# TAB 4: GUEST REVIEWS
+# TAB 5: GUEST REVIEWS
 # ---------------------------------------------------------
 with tab_reviews:
     st.markdown('<div class="section-label">CLIENT TESTIMONIALS</div>', unsafe_allow_html=True)
@@ -436,14 +516,12 @@ with tab_reviews:
         )
 
 # ---------------------------------------------------------
-# TAB 5: DIRECT RESERVATIONS
+# TAB 6: DIRECT RESERVATIONS
 # ---------------------------------------------------------
 with tab_booking:
     st.markdown('<div class="section-label">DIRECT BOOKING PORTAL</div>', unsafe_allow_html=True)
     st.header("Reserve Your Residence Directly")
-
-    st.write(
-        "Secure preferred corporate rates, complimentary room upgrades upon availability, and direct host coordination.")
+    st.write("Secure preferred direct rates, instant availability confirmation, and direct host support.")
 
     b_form, b_info = st.columns([1.3, 0.9], gap="large")
 
@@ -452,8 +530,8 @@ with tab_booking:
             st.subheader("Booking Request")
 
             fn = st.text_input("Full Name *")
-            em = st.text_input("Corporate / Personal Email *")
-            ph = st.text_input("Phone Number (with country code) *")
+            em = st.text_input("Email Address *")
+            ph = st.text_input("Phone / WhatsApp *")
 
             d_col1, d_col2 = st.columns(2)
             with d_col1:
@@ -461,20 +539,14 @@ with tab_booking:
             with d_col2:
                 cout = st.date_input("Check-Out Date", datetime.now() + timedelta(days=5))
 
-            suite_type = st.selectbox("Residence Category", [
-                "Executive Sea View Apartment",
-                "Standard Double Suite",
-                "Twin Balcony Room",
-                "Family Suite (2-Bedroom)"
-            ])
-
-            req = st.text_area("Special Requests / Corporate Billing Requirements")
+            suite_type = st.selectbox("Residence Category", list(ROOM_RATES.keys()))
+            req = st.text_area("Special Requests / Flight Details")
 
             sub = st.form_submit_button("SUBMIT DIRECT RESERVATION")
             if sub:
                 if fn and em and ph:
                     st.success(
-                        "Your reservation request has been transmitted. Our management team (Kostas & Maria) will respond within 2 hours.")
+                        "Your reservation request has been transmitted! Kostas & Maria will contact you within 2 hours.")
                 else:
                     st.error("Please complete all required fields (*).")
 
@@ -488,9 +560,9 @@ with tab_booking:
                 <p><b>Address:</b> Ammoudara, Heraklion, Crete, Greece</p>
                 <hr style="margin:15px 0;">
                 <p><b>Direct Booking Guarantees:</b></p>
-                <p>✔ 0% Commission Surcharge</p>
+                <p>✔ 10% Discount vs Third-Party Platforms</p>
                 <p>✔ Priority Check-in Flexibility</p>
-                <p>✔ Direct Access to Management</p>
+                <p>✔ Direct Line with Your Hosts</p>
             </div>
             """,
             unsafe_allow_html=True,
