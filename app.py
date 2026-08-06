@@ -3,7 +3,6 @@ import streamlit as st
 from pathlib import Path
 from PIL import Image
 
-
 # =========================================================
 # PAGE CONFIG
 # =========================================================
@@ -14,7 +13,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
-
 
 # =========================================================
 # PATHS
@@ -46,10 +44,13 @@ def get_image(filename):
 
 hotel = get_image("hotel.jpg")
 
+# SEA / CRETE
 sea = get_image("sea.jpg")
 sea1 = get_image("sea1.jpg")
 seaview = get_image("seaview.jpg")
 seabynight = get_image("seabynight.jpg")
+
+# APARTMENT
 balcony = get_image("balcony.jpg")
 
 livingroom = get_image("livingroom.jpg")
@@ -74,10 +75,6 @@ st.markdown(
     """
     <style>
 
-    /* =====================================================
-       GENERAL
-       ===================================================== */
-
     .stApp {
         background: #faf9f6;
         color: #222222;
@@ -99,18 +96,7 @@ st.markdown(
         visibility: hidden;
     }
 
-    header {
-        background: transparent !important;
-    }
-
-
-    /* =====================================================
-       TYPOGRAPHY
-       ===================================================== */
-
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
         font-family: Georgia, "Times New Roman", serif !important;
         color: #173b43 !important;
         font-weight: 400 !important;
@@ -124,15 +110,14 @@ st.markdown(
         font-size: 2.3rem !important;
     }
 
+    h3 {
+        font-size: 1.5rem !important;
+    }
+
     p {
         color: #555555;
         line-height: 1.8;
     }
-
-
-    /* =====================================================
-       DIVIDERS
-       ===================================================== */
 
     hr {
         border: none;
@@ -140,11 +125,6 @@ st.markdown(
         margin-top: 40px;
         margin-bottom: 40px;
     }
-
-
-    /* =====================================================
-       BUTTONS
-       ===================================================== */
 
     .stButton > button {
         background: #173b43;
@@ -160,11 +140,6 @@ st.markdown(
         background: #285b64;
         color: white;
     }
-
-
-    /* =====================================================
-       METRICS
-       ===================================================== */
 
     [data-testid="stMetric"] {
         background: white;
@@ -182,11 +157,6 @@ st.markdown(
         font-family: Georgia, "Times New Roman", serif;
     }
 
-
-    /* =====================================================
-       SECTION LABEL
-       ===================================================== */
-
     .section-label {
         color: #a0784c;
         font-size: 11px;
@@ -195,46 +165,35 @@ st.markdown(
         margin-bottom: 8px;
     }
 
-
-    /* =====================================================
-       WHY STAY FEATURE BOXES
-       ===================================================== */
-
     .feature-box {
         background: white;
         border: 1px solid #ebe7df;
-        border-radius: 6px;
-        padding: 30px;
-        min-height: 230px;
-        box-shadow: 0 6px 20px rgba(23, 59, 67, 0.04);
+        border-radius: 4px;
+        padding: 28px;
+        min-height: 190px;
     }
 
     .feature-icon {
-        font-size: 28px;
-        margin-bottom: 18px;
-    }
-
-    .feature-title {
-        font-family: Georgia, "Times New Roman", serif;
-        color: #173b43;
-        font-size: 24px;
+        font-size: 27px;
         margin-bottom: 12px;
     }
 
-    .feature-text {
-        color: #5f625f;
-        font-size: 15px;
-        line-height: 1.8;
+    .feature-title {
+        color: #173b43;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        margin-bottom: 10px;
     }
 
-
-    /* =====================================================
-       HOST
-       ===================================================== */
+    .feature-text {
+        color: #666666;
+        line-height: 1.7;
+        font-size: 14px;
+    }
 
     .host-box {
         background: #173b43;
-        border-radius: 6px;
+        border-radius: 4px;
         padding: 32px;
         color: white;
     }
@@ -252,15 +211,10 @@ st.markdown(
         font-size: 15px;
     }
 
-
-    /* =====================================================
-       REVIEWS
-       ===================================================== */
-
     .review-box {
         background: white;
         border: 1px solid #ebe7df;
-        border-radius: 6px;
+        border-radius: 4px;
         padding: 30px;
         min-height: 220px;
     }
@@ -285,10 +239,20 @@ st.markdown(
         margin-top: 20px;
     }
 
+    .gallery-title {
+        font-family: Georgia, "Times New Roman", serif;
+        color: #173b43;
+        font-size: 21px;
+        margin-top: 12px;
+        margin-bottom: 3px;
+    }
 
-    /* =====================================================
-       FOOTER
-       ===================================================== */
+    .gallery-counter {
+        color: #888888;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+    }
 
     .footer-title {
         font-family: Georgia, "Times New Roman", serif;
@@ -300,7 +264,6 @@ st.markdown(
         color: #777777;
         line-height: 1.8;
     }
-
 
     /* =====================================================
        MOBILE
@@ -347,8 +310,8 @@ st.markdown(
 
         .feature-box {
             min-height: auto;
-            padding: 25px;
         }
+
     }
 
     </style>
@@ -371,7 +334,6 @@ with nav_left:
     st.markdown("### SEA VIEW")
     st.caption("AMMOUDARA · CRETE")
 
-
 with nav_center:
 
     st.markdown(
@@ -389,7 +351,6 @@ with nav_center:
         unsafe_allow_html=True,
     )
 
-
 with nav_right:
 
     if st.button(
@@ -403,7 +364,6 @@ with nav_right:
             [BOOK YOUR STAY](https://www.airbnb.gr/rooms/559151340688341474)
             """
         )
-
 
 st.divider()
 
@@ -420,11 +380,7 @@ hero_left, hero_right = st.columns(
 with hero_left:
 
     st.markdown(
-        """
-        <div class="section-label">
-            AMMOUDARA · HERAKLION · CRETE
-        </div>
-        """,
+        '<div class="section-label">AMMOUDARA · HERAKLION · CRETE</div>',
         unsafe_allow_html=True,
     )
 
@@ -438,15 +394,11 @@ with hero_left:
         """
     )
 
-    if st.button(
-        "CHECK AVAILABILITY",
-        key="hero_booking"
-    ):
+    if st.button("CHECK AVAILABILITY", key="hero_booking"):
 
         st.markdown(
             "[Open our Airbnb listing](https://www.airbnb.gr/rooms/559151340688341474)"
         )
-
 
 with hero_right:
 
@@ -484,11 +436,7 @@ with c4:
 st.divider()
 
 st.markdown(
-    """
-    <div class="section-label">
-        THE EXPERIENCE
-    </div>
-    """,
+    '<div class="section-label">THE EXPERIENCE</div>',
     unsafe_allow_html=True,
 )
 
@@ -524,8 +472,8 @@ with experience_left:
         staying longer, our goal is simple:
 
         **make you feel comfortable, relaxed and welcome.**
-        """)
-
+        """
+    )
 
 with experience_right:
 
@@ -536,20 +484,6 @@ with experience_right:
             caption="Sea view from the balcony",
             width="stretch"
         )
-
-
-# =========================================================
-# SEA IMAGE
-# =========================================================
-
-if seaview:
-
-    st.image(
-        seaview,
-        width="stretch"
-    )
-
-
 
 # =========================================================
 # WHY STAY
@@ -564,14 +498,17 @@ st.markdown(
 
 st.header("Everything you need for a relaxing stay.")
 
-f1, f2, f3 = st.columns(3, gap="large")
-
+f1, f2, f3 = st.columns(3)
 
 with f1:
 
-    st.html("""
+    st.markdown(
+        """
         <div class="feature-box">
-            <div class="feature-icon">🌊</div>
+
+            <div class="feature-icon">
+                🌊
+            </div>
 
             <div class="feature-title">
                 By the sea
@@ -582,15 +519,22 @@ with f1:
                 perfect for morning walks, swimming and
                 relaxing beside the Cretan coast.
             </div>
+
         </div>
-    """)
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 with f2:
 
-    st.html("""
+    st.markdown(
+        """
         <div class="feature-box">
-            <div class="feature-icon">🌅</div>
+
+            <div class="feature-icon">
+                🌅
+            </div>
 
             <div class="feature-title">
                 Beautiful views
@@ -600,15 +544,22 @@ with f2:
                 Enjoy views of the sea and surrounding
                 landscape from the apartment and balcony.
             </div>
+
         </div>
-    """)
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 with f3:
 
-    st.html("""
+    st.markdown(
+        """
         <div class="feature-box">
-            <div class="feature-icon">🚗</div>
+
+            <div class="feature-icon">
+                🚗
+            </div>
 
             <div class="feature-title">
                 Free parking
@@ -618,8 +569,11 @@ with f3:
                 Convenient free parking makes arriving by
                 car and exploring Crete easier.
             </div>
+
         </div>
-    """)
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 
@@ -631,79 +585,159 @@ with f3:
 st.divider()
 
 st.markdown(
-    """
-    <div class="section-label">
-        THE APARTMENT
-    </div>
-    """,
+    '<div class="section-label">THE APARTMENT</div>',
     unsafe_allow_html=True,
 )
 
 st.header("Simple. Comfortable. Authentic.")
 
-apt_left, apt_right = st.columns(
-    [1.1, 1],
-    gap="large"
-)
 
-with apt_left:
+# =========================================================
+# APARTMENT SLIDESHOW
+# =========================================================
 
-    if livingroom:
+apartment_images = [
+    ("Living room", livingroom),
+    ("Living room", livingroom1),
+    ("Living room", livingroom2),
+    ("Bedroom", bedroom),
+    ("Bedroom", bedroom1),
+    ("Bedroom", bedroom2),
+    ("Kitchen", kitchen),
+    ("Bathroom", bathroom),
+    ("Bathroom", bathroom1),
+    ("Balcony", balcony),
+]
+
+# Remove missing images
+apartment_images = [
+    (name, image)
+    for name, image in apartment_images
+    if image is not None
+]
+
+
+if apartment_images:
+
+    if "apartment_slide" not in st.session_state:
+        st.session_state.apartment_slide = 0
+
+    current_apartment = st.session_state.apartment_slide
+
+    apartment_name, apartment_image = apartment_images[
+        current_apartment
+    ]
+
+    gallery_left, gallery_right = st.columns(
+        [1.35, 0.85],
+        gap="large"
+    )
+
+    with gallery_left:
 
         st.image(
-            livingroom,
-            caption="Living room",
+            apartment_image,
             width="stretch"
         )
 
+        st.markdown(
+            f"""
+            <div class="gallery-title">
+                {apartment_name}
+            </div>
 
-with apt_right:
+            <div class="gallery-counter">
+                {current_apartment + 1} / {len(apartment_images)}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    st.subheader("A comfortable home in Ammoudara")
+    with gallery_right:
 
-    st.write(
-        """
-        The apartment offers a comfortable bedroom,
-        living area, fully equipped kitchen and private
-        balcony with sea views.
-        """
+        st.subheader("A comfortable home in Ammoudara")
+
+        st.write(
+            """
+            The apartment offers a comfortable bedroom,
+            living area, fully equipped kitchen and private
+            balcony with sea views.
+            """
+        )
+
+        st.markdown(
+            """
+            **The apartment includes:**
+
+            • 1 bedroom with double bed  
+            • Living room  
+            • Fully equipped kitchen  
+            • Private balcony  
+            • Bathroom with shower  
+            • Air conditioning  
+            • Wi-Fi  
+            • Washing machine  
+            • Free parking  
+            • Sea and mountain views
+            """
+        )
+
+
+    apartment_prev, apartment_spacer, apartment_next = st.columns(
+        [1, 4, 1]
     )
 
-    st.markdown(
-        """
-        **The apartment includes:**
+    with apartment_prev:
 
-        • 1 bedroom with double bed  
-        • Living room  
-        • Fully equipped kitchen  
-        • Private balcony  
-        • Bathroom with shower  
-        • Air conditioning  
-        • Wi-Fi  
-        • Washing machine  
-        • Free parking  
-        • Sea and mountain views
-        """
-    )
+        if st.button(
+            "← Previous",
+            key="apartment_previous",
+            width="stretch"
+        ):
 
+            st.session_state.apartment_slide = (
+                current_apartment - 1
+            ) % len(apartment_images)
+
+            st.rerun()
+
+    with apartment_next:
+
+        if st.button(
+            "Next →",
+            key="apartment_next",
+            width="stretch"
+        ):
+
+            st.session_state.apartment_slide = (
+                current_apartment + 1
+            ) % len(apartment_images)
+
+            st.rerun()
 
 
 # =========================================================
-# CRETE & SEA SLIDESHOW
+# CRETE / SEA
 # =========================================================
 
 st.divider()
 
-st.markdown("**CRETE**")
+st.markdown(
+    '<div class="section-label">CRETE</div>',
+    unsafe_allow_html=True,
+)
 
 st.header("The sea is part of the stay.")
+
+
+# Only location / sea images here.
+# Apartment photos are NOT repeated.
 
 sea_images = [
     ("Ammoudara beach", sea),
     ("The Cretan coastline", sea1),
     ("Sea view", seaview),
     ("Ammoudara by night", seabynight),
-    ("Balcony", balcony),
 ]
 
 # Remove missing images
@@ -712,6 +746,7 @@ sea_images = [
     for name, image in sea_images
     if image is not None
 ]
+
 
 if sea_images:
 
@@ -722,32 +757,52 @@ if sea_images:
 
     sea_name, sea_image = sea_images[current_sea]
 
-    # Main slideshow image
-    st.image(
-        sea_image,
-        caption=sea_name,
-        width="stretch"
+    sea_gallery_left, sea_gallery_right = st.columns(
+        [1.35, 0.85],
+        gap="large"
     )
 
-    # Counter
-    st.caption(
-        f"{current_sea + 1} / {len(sea_images)}"
-    )
+    with sea_gallery_left:
 
-    # Simple slideshow indicators
-    indicator_text = ""
+        st.image(
+            sea_image,
+            width="stretch"
+        )
 
-    for i in range(len(sea_images)):
+        st.markdown(
+            f"""
+            <div class="gallery-title">
+                {sea_name}
+            </div>
 
-        if i == current_sea:
-            indicator_text += "━ "
-        else:
-            indicator_text += "• "
+            <div class="gallery-counter">
+                {current_sea + 1} / {len(sea_images)}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    st.write(indicator_text)
+    with sea_gallery_right:
 
-    # Navigation
-    sea_prev, sea_space, sea_next = st.columns(
+        st.subheader("Discover Ammoudara")
+
+        st.write(
+            """
+            From the beach just a short walk away to the
+            beautiful Cretan coastline, the sea is always
+            close during your stay.
+            """
+        )
+
+        st.write(
+            """
+            Enjoy a morning swim, an afternoon by the sea
+            or a relaxing evening watching the coastline.
+            """
+        )
+
+
+    sea_prev, sea_spacer, sea_next = st.columns(
         [1, 4, 1]
     )
 
@@ -780,8 +835,6 @@ if sea_images:
             st.rerun()
 
 
-
-
 # =========================================================
 # HOSTS
 # =========================================================
@@ -789,11 +842,7 @@ if sea_images:
 st.divider()
 
 st.markdown(
-    """
-    <div class="section-label">
-        YOUR HOSTS
-    </div>
-    """,
+    '<div class="section-label">YOUR HOSTS</div>',
     unsafe_allow_html=True,
 )
 
@@ -803,7 +852,6 @@ host_left, host_right = st.columns(
     [1.1, 1],
     gap="large"
 )
-
 
 with host_left:
 
@@ -835,46 +883,41 @@ with host_left:
     )
 
 
-r1, r2 = st.columns(2, gap="large")
+with host_right:
 
-with r1:
-
-    st.markdown("★★★★★")
-
-    st.write(
+    st.markdown(
         """
-        “The location was unbeatable. Waking up with
-        a sea view made the whole trip feel special.
-        The apartment was clean, comfortable and
-        exactly as described.”
-        """
+        <div class="host-box">
+
+            <div class="host-title">
+                Feel at home in Crete.
+            </div>
+
+            <div class="host-text">
+                Personal hospitality, local knowledge and
+                a relaxed seaside atmosphere — from two
+                hosts who genuinely want you to enjoy
+                your time in Crete.
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    st.caption("— Obada · Guest")
 
-
-with r2:
-
-    st.markdown("★★★★★")
-
-    st.write(
-        """
-        “Very clean, quiet, with a large balcony and
-        beautiful sea view. The beach and restaurants
-        are just a short walk away.”
-        """
-    )
-
-    st.caption("— Véronique · Guest")
 
 
 # =========================================================
-# GUEST REVIEWS
+# REVIEWS
 # =========================================================
 
 st.divider()
 
-st.markdown("**GUEST REVIEWS**")
+st.markdown(
+    '<div class="section-label">GUEST REVIEWS</div>',
+    unsafe_allow_html=True,
+)
 
 st.header("What our guests say.")
 
@@ -882,33 +925,56 @@ r1, r2 = st.columns(2, gap="large")
 
 with r1:
 
-    st.markdown("★★★★★")
+    st.markdown(
+        """
+        <div class="review-box">
 
-    st.write(
-        """
-        “The location was unbeatable. Waking up with
-        a sea view made the whole trip feel special.
-        The apartment was clean, comfortable and
-        exactly as described.”
-        """
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <div class="review-quote">
+                “The location was unbeatable. Waking up with
+                a sea view made the whole trip feel special.
+                The apartment was clean, comfortable and
+                exactly as described.”
+            </div>
+
+            <div class="review-author">
+                — Obada · Guest
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
-
-    st.caption("— Obada · Guest")
 
 
 with r2:
 
-    st.markdown("★★★★★")
+    st.markdown(
+        """
+        <div class="review-box">
 
-    st.write(
-        """
-        “Very clean, quiet, with a large balcony and
-        beautiful sea view. The beach and restaurants
-        are just a short walk away.”
-        """
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <div class="review-quote">
+                “Very clean, quiet, with a large balcony and
+                beautiful sea view. The beach and restaurants
+                are just a short walk away.”
+            </div>
+
+            <div class="review-author">
+                — Véronique · Guest
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    st.caption("— Véronique · Guest")
 
 
 
@@ -919,11 +985,7 @@ with r2:
 st.divider()
 
 st.markdown(
-    """
-    <div class="section-label">
-        LOCATION
-    </div>
-    """,
+    '<div class="section-label">LOCATION</div>',
     unsafe_allow_html=True,
 )
 
@@ -933,7 +995,6 @@ location_left, location_right = st.columns(
     [1, 1.15],
     gap="large"
 )
-
 
 with location_left:
 
@@ -1016,7 +1077,6 @@ st.write("")
 
 l1, l2, l3, l4 = st.columns(4)
 
-
 with l1:
 
     st.metric(
@@ -1024,7 +1084,6 @@ with l1:
         "50 m",
         "Walking distance"
     )
-
 
 with l2:
 
@@ -1034,7 +1093,6 @@ with l2:
         "Heraklion"
     )
 
-
 with l3:
 
     st.metric(
@@ -1042,7 +1100,6 @@ with l3:
         "Restaurants",
         "Cafés & shops"
     )
-
 
 with l4:
 
@@ -1060,11 +1117,7 @@ with l4:
 st.divider()
 
 st.markdown(
-    """
-    <div class="section-label">
-        READY FOR CRETE?
-    </div>
-    """,
+    '<div class="section-label">READY FOR CRETE?</div>',
     unsafe_allow_html=True,
 )
 
@@ -1083,7 +1136,6 @@ booking_left, booking_right = st.columns(
     gap="large"
 )
 
-
 with booking_left:
 
     st.subheader("Stay with Kostas & Maria")
@@ -1101,7 +1153,6 @@ with booking_left:
         **Beach · Sea views · Private apartment · Free parking**
         """
     )
-
 
 with booking_right:
 
