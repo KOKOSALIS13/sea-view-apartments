@@ -68,7 +68,7 @@ bathroom = get_image("bathroom.jpg")
 bathroom1 = get_image("bathroom1.jpg")
 
 # =========================================================
-# CUSTOM CSS & SEO META TAGS
+# ADVANCED BOUTIQUE CSS (LUXURY HOTEL LOOK)
 # =========================================================
 
 st.markdown(
@@ -81,205 +81,146 @@ st.markdown(
     </head>
 
     <style>
+    /* 1. Γενικό Θέμα & Φόντο (Warm Sand & Mineral Tones) */
     .stApp {
-        background: #faf9f6;
+        background-color: #fcfbfa;
+        background-image: radial-gradient(#e2ded7 0.5px, transparent 0.5px);
+        background-size: 24px 24px;
         color: #222222;
     }
 
     .block-container {
-        max-width: 1400px;
-        padding-top: 25px;
-        padding-bottom: 60px;
+        max-width: 1350px;
+        padding-top: 20px;
+        padding-bottom: 80px;
         padding-left: 5%;
         padding-right: 5%;
     }
 
-    #MainMenu, footer {
-        visibility: hidden;
-    }
+    #MainMenu, footer { visibility: hidden; }
 
+    /* 2. Τυπογραφία Ξενοδοχείου */
     h1, h2, h3 {
-        font-family: Georgia, "Times New Roman", serif !important;
-        color: #173b43 !important;
-        font-weight: 400 !important;
+        font-family: "Playfair Display", Georgia, serif !important;
+        color: #0f2b30 !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.01em !important;
     }
 
-    h1 { font-size: 3.3rem !important; }
-    h2 { font-size: 2.3rem !important; }
+    h1 { font-size: 3.4rem !important; line-height: 1.15 !important; }
+    h2 { font-size: 2.4rem !important; margin-bottom: 20px !important; }
     h3 { font-size: 1.5rem !important; }
 
-    p {
-        color: #555555;
-        line-height: 1.8;
-    }
+    p { color: #4a5254; line-height: 1.8; font-size: 15px; }
 
     hr {
         border: none;
-        border-top: 1px solid #e5e0d8;
-        margin-top: 40px;
-        margin-bottom: 40px;
+        border-top: 1px solid #e8e3db;
+        margin-top: 45px;
+        margin-bottom: 45px;
     }
 
-    .stLinkButton > a {
-        background: #173b43 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 0.7rem 1.4rem !important;
-        font-size: 13px !important;
-        font-weight: 600 !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        text-align: center !important;
-        transition: background 0.2s ease !important;
+    /* 3. Κάρτες Παροχών & Reviews με Hover Effect */
+    .feature-box, .review-box {
+        background: #ffffff;
+        border: 1px solid #eae5dd;
+        border-radius: 8px;
+        padding: 30px;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        min-height: 200px;
     }
 
-    .stLinkButton > a:hover {
-        background: #285b64 !important;
-        color: white !important;
+    .feature-box:hover, .review-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(23, 59, 67, 0.08);
+        border-color: #c9b396;
     }
 
+    .feature-icon { font-size: 27px; margin-bottom: 12px; }
+    .feature-title { color: #173b43; font-family: Georgia, serif; font-size: 21px; margin-bottom: 10px; }
+    .feature-text { color: #666666; line-height: 1.7; font-size: 14px; }
+
+    .host-box {
+        background: #173b43;
+        border-radius: 8px;
+        padding: 35px;
+        color: white;
+        box-shadow: 0 10px 25px rgba(23, 59, 67, 0.15);
+    }
+    .host-title { color: white; font-family: Georgia, serif; font-size: 26px; margin-bottom: 15px; }
+    .host-text { color: #e5eeee; line-height: 1.8; font-size: 15px; }
+
+    .review-stars { color: #a0784c; font-size: 18px; letter-spacing: 2px; }
+    .review-quote { color: #444444; font-size: 15px; line-height: 1.8; font-style: italic; margin-top: 15px; }
+    .review-author { color: #777777; font-size: 13px; margin-top: 20px; }
+
+    /* 4. Luxury Metric Cards */
     [data-testid="stMetric"] {
-        background: white;
-        border: 1px solid #ebe7df;
-        border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid #eae5dd;
+        border-radius: 8px;
         padding: 18px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        text-align: center;
     }
 
-    [data-testid="stMetricLabel"] {
-        color: #777777 !important;
-    }
+    [data-testid="stMetricLabel"] { color: #777777 !important; }
 
     [data-testid="stMetricValue"] {
         color: #173b43 !important;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: Georgia, serif;
+        font-size: 2rem !important;
+    }
+
+    /* 5. Κουμπιά & Link Buttons */
+    .stLinkButton > a, .stButton > button {
+        background: #173b43 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 6px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.04em !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 4px 10px rgba(23, 59, 67, 0.12) !important;
+    }
+
+    .stLinkButton > a:hover, .stButton > button:hover {
+        background: #a0784c !important;
+        color: white !important;
+        transform: translateY(-2px);
+    }
+
+    /* 6. Φόρμα Κρατήσεων */
+    [data-testid="stForm"] {
+        background: #ffffff;
+        border: 1px solid #eae5dd;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     }
 
     .section-label {
         color: #a0784c;
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
         margin-bottom: 8px;
     }
 
-    .feature-box {
-        background: white;
-        border: 1px solid #ebe7df;
-        border-radius: 4px;
-        padding: 28px;
-        min-height: 190px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
+    .gallery-title { font-family: Georgia, serif; color: #173b43; font-size: 21px; margin-top: 12px; margin-bottom: 3px; }
+    .gallery-counter { color: #888888; font-size: 12px; letter-spacing: 0.05em; margin-bottom: 12px; }
 
-    .feature-icon {
-        font-size: 27px;
-        margin-bottom: 12px;
-    }
-
-    .feature-title {
-        color: #173b43;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
-
-    .feature-text {
-        color: #666666;
-        line-height: 1.7;
-        font-size: 14px;
-    }
-
-    .host-box {
-        background: #173b43;
-        border-radius: 4px;
-        padding: 32px;
-        color: white;
-    }
-
-    .host-title {
-        color: white;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 27px;
-        margin-bottom: 15px;
-    }
-
-    .host-text {
-        color: #e5eeee;
-        line-height: 1.8;
-        font-size: 15px;
-    }
-
-    .review-box {
-        background: white;
-        border: 1px solid #ebe7df;
-        border-radius: 4px;
-        padding: 30px;
-        min-height: 220px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-
-    .review-stars {
-        color: #a0784c;
-        font-size: 18px;
-        letter-spacing: 2px;
-    }
-
-    .review-quote {
-        color: #444444;
-        font-size: 15px;
-        line-height: 1.8;
-        font-style: italic;
-        margin-top: 15px;
-    }
-
-    .review-author {
-        color: #777777;
-        font-size: 13px;
-        margin-top: 20px;
-    }
-
-    .gallery-title {
-        font-family: Georgia, "Times New Roman", serif;
-        color: #173b43;
-        font-size: 21px;
-        margin-top: 12px;
-        margin-bottom: 3px;
-    }
-
-    .gallery-counter {
-        color: #888888;
-        font-size: 12px;
-        letter-spacing: 0.05em;
-        margin-bottom: 12px;
-    }
-
-    .footer-title {
-        font-family: Georgia, "Times New Roman", serif;
-        color: #173b43;
-        font-size: 25px;
-    }
-
-    .footer-text {
-        color: #777777;
-        line-height: 1.8;
-    }
+    .footer-title { font-family: Georgia, serif; color: #173b43; font-size: 24px; }
+    .footer-text { color: #777777; line-height: 1.8; }
 
     @media (max-width: 768px) {
-        .block-container {
-            padding-left: 5%;
-            padding-right: 5%;
-            padding-top: 15px;
-        }
-        h1 { font-size: 2.4rem !important; line-height: 1.15 !important; }
-        h2 { font-size: 1.9rem !important; line-height: 1.2 !important; }
-        h3 { font-size: 1.4rem !important; }
-        p { font-size: 15px; line-height: 1.7; }
-        [data-testid="stHorizontalBlock"] { gap: 1rem !important; }
-        [data-testid="stMetric"] { padding: 12px; }
-        [data-testid="stMetricValue"] { font-size: 1.4rem !important; }
-        .feature-box { min-height: auto; }
+        .block-container { padding-left: 5%; padding-right: 5%; padding-top: 15px; }
+        h1 { font-size: 2.3rem !important; }
+        h2 { font-size: 1.8rem !important; }
+        .feature-box, .review-box { min-height: auto; }
     }
     </style>
     """,
