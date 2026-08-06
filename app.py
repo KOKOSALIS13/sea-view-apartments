@@ -23,21 +23,26 @@ AIRBNB_URL = "https://www.airbnb.gr/rooms/559151340688341474"
 MAPS_URL = "https://www.google.com/maps/search/Ammoudara+Heraklion+Crete"
 
 # =========================================================
-# PATHS & IMAGE LOADER
+# PATHS & CACHED IMAGE LOADER
 # =========================================================
 
 BASE_DIR = Path(__file__).parent
 IMAGE_DIR = BASE_DIR / "images"
 
 
-def get_image(filename):
-    path = IMAGE_DIR / filename
+@st.cache_data(show_spinner=False)
+def load_image_cached(path_str):
+    path = Path(path_str)
     if path.exists():
         try:
             return Image.open(path)
         except Exception:
             return None
     return None
+
+
+def get_image(filename):
+    return load_image_cached(str(IMAGE_DIR / filename))
 
 
 # Load Images
@@ -62,11 +67,18 @@ bathroom = get_image("bathroom.jpg")
 bathroom1 = get_image("bathroom1.jpg")
 
 # =========================================================
-# CUSTOM CSS
+# CUSTOM CSS & SEO META TAGS
 # =========================================================
 
 st.markdown(
     """
+    <!-- SEO & Open Graph Meta Tags -->
+    <head>
+        <meta property="og:title" content="Sea View Apartments | Ammoudara, Crete">
+        <meta property="og:description" content="Comfortable private apartments just 50m from the beach in Ammoudara, Heraklion.">
+        <meta property="og:type" content="website">
+    </head>
+
     <style>
     .stApp {
         background: #faf9f6;
@@ -295,7 +307,7 @@ with nav_center:
     )
 
 with nav_right:
-    st.link_button("BOOK", AIRBNB_URL, use_container_width=True)
+    st.link_button("BOOK NOW", AIRBNB_URL, use_container_width=True)
 
 st.divider()
 
@@ -448,14 +460,14 @@ st.header("Simple. Comfortable. Authentic.")
 apartment_images = [
     (name, img) for name, img in [
         ("Living room", livingroom),
-        ("Living room", livingroom1),
-        ("Living room", livingroom2),
+        ("Living room view 2", livingroom1),
+        ("Living room view 3", livingroom2),
         ("Bedroom", bedroom),
-        ("Bedroom", bedroom1),
-        ("Bedroom", bedroom2),
+        ("Bedroom view 2", bedroom1),
+        ("Bedroom view 3", bedroom2),
         ("Kitchen", kitchen),
         ("Bathroom", bathroom),
-        ("Bathroom", bathroom1),
+        ("Bathroom view 2", bathroom1),
         ("Balcony", balcony),
     ] if img is not None
 ]
@@ -475,6 +487,20 @@ if apartment_images:
             """,
             unsafe_allow_html=True,
         )
+
+        # Quick Navigation Radio Bar
+        selected_apt = st.radio(
+            "Select Apartment Photo",
+            options=range(len(apartment_images)),
+            index=current_apartment,
+            format_func=lambda i: f"📷 {i + 1}",
+            horizontal=True,
+            key="apt_radio",
+            label_visibility="collapsed"
+        )
+        if selected_apt != current_apartment:
+            st.session_state.apartment_slide = selected_apt
+            st.rerun()
 
     with gallery_right:
         st.subheader("A comfortable home in Ammoudara")
@@ -547,6 +573,20 @@ if sea_images:
             """,
             unsafe_allow_html=True,
         )
+
+        # Quick Navigation Radio Bar
+        selected_sea = st.radio(
+            "Select Sea Photo",
+            options=range(len(sea_images)),
+            index=current_sea,
+            format_func=lambda i: f"🌊 {i + 1}",
+            horizontal=True,
+            key="sea_radio",
+            label_visibility="collapsed"
+        )
+        if selected_sea != current_sea:
+            st.session_state.sea_slide = selected_sea
+            st.rerun()
 
     with sea_gallery_right:
         st.subheader("Discover Ammoudara")
@@ -743,38 +783,72 @@ with l4:
     st.metric("Parking", "FREE", "Available")
 
 # =========================================================
-# FINAL BOOKING CTA
+# FAQ SECTION
 # =========================================================
 
 st.divider()
 
-st.markdown('<div class="section-label">READY FOR CRETE?</div>', unsafe_allow_html=True)
-st.header("Your stay by the sea starts here.")
+st.markdown('<div class="section-label">QUESTIONS & ANSWERS</div>', unsafe_allow_html=True)
+st.header("Frequently Asked Questions")
 
-st.write(
-    """
-    Wake up to the Cretan sea, enjoy the beach just steps away
-    and explore Heraklion from a comfortable private apartment
-    in Ammoudara.
-    """
-)
+faq1, faq2 = st.columns(2, gap="large")
 
-booking_left, booking_right = st.columns([1.4, 1], gap="large")
+with faq1:
+    with st.expander("🕒 What are the Check-in and Check-out times?"):
+        st.write(
+            "Standard check-in is from 15:00 onwards, and check-out is until 11:00 AM. Flexible timing can be arranged upon request.")
 
-with booking_left:
+    with st.expander("🚌 Is public transport available nearby?"):
+        st.write(
+            "Yes! A public bus stop is located just a short walk away with regular routes connecting to Heraklion city center, the port, and the airport.")
+
+with faq2:
+    with st.expander("📶 Is Wi-Fi suitable for remote work?"):
+        st.write(
+            "Yes, we provide fast and reliable private Wi-Fi suitable for video calls, streaming, and remote work.")
+
+    with st.expander("🛒 Are grocery stores and restaurants nearby?"):
+        st.write(
+            "Supermarkets, bakeries, tavernas, and cafés are all within 2 to 5 minutes walking distance from the apartment.")
+
+# =========================================================
+# INQUIRY / CONTACT FORM
+# =========================================================
+
+st.divider()
+
+st.markdown('<div class="section-label">GET IN TOUCH</div>', unsafe_allow_html=True)
+st.header("Have a question before booking?")
+
+contact_left, contact_right = st.columns([1.2, 1], gap="large")
+
+with contact_left:
+    st.write(
+        """
+        Feel free to send us a message regarding availability, special requests, or local advice.
+        We will respond as quickly as possible!
+        """
+    )
+    with st.form("inquiry_form", clear_on_submit=True):
+        guest_email = st.text_input("Your Email", placeholder="example@domain.com")
+        guest_message = st.text_area("Your Message", placeholder="Ask us anything about your upcoming stay...")
+        submitted = st.form_submit_button("SEND INQUIRY", use_container_width=True)
+        if submitted:
+            if guest_email and guest_message:
+                st.success("Thank you! Your message has been sent. We will get back to you shortly.")
+            else:
+                st.error("Please fill in both your email and message before sending.")
+
+with contact_right:
     st.subheader("Stay with Kostas & Maria")
     st.write(
         """
-        We would be happy to welcome you to Ammoudara and
-        help make your stay in Crete comfortable, relaxing
-        and memorable.
+        We look forward to hosting you in Ammoudara and making your time in Crete comfortable and memorable.
         """
     )
     st.write("**Beach · Sea views · Private apartment · Free parking**")
-
-with booking_right:
     st.link_button("CHECK AVAILABILITY ON AIRBNB", AIRBNB_URL, use_container_width=True)
-    st.caption("You will be redirected to our Airbnb listing.")
+    st.caption("You will be redirected to our official Airbnb listing.")
 
 # =========================================================
 # FOOTER
