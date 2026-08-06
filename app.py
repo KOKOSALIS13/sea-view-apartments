@@ -68,156 +68,158 @@ bathroom = get_image("bathroom.jpg")
 bathroom1 = get_image("bathroom1.jpg")
 
 # =========================================================
-# SAND COLOR BACKGROUND & BOUTIQUE CSS
+# AESTHETIC EDITORIAL DESIGN (MINIMAL & BOUTIQUE)
 # =========================================================
 
 st.markdown(
     """
-    <!-- SEO & Open Graph Meta Tags -->
-    <head>
-        <meta property="og:title" content="Sea View Hotel & Apartments | Ammoudara, Crete">
-        <meta property="og:description" content="Comfortable private apartments & rooms (23 units) just 50m from the beach in Ammoudara, Heraklion.">
-        <meta property="og:type" content="website">
-    </head>
+    <!-- Google Fonts import for Aesthetic Serif & Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-    /* 1. Σταθερό Χρώμα Άμμου στο Φόντο σε όλο το Site */
+    /* 1. Global Soft Linen/Vanilla Background */
     html, body, [data-testid="stAppViewContainer"], .stApp {
-        background-color: #f4f0ea !important;
-        color: #222222 !important;
+        background-color: #f7f4ee !important;
+        color: #2b2b2b !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
 
     .block-container {
-        max-width: 1350px;
-        padding-top: 20px;
-        padding-bottom: 80px;
-        padding-left: 5%;
-        padding-right: 5%;
+        max-width: 1280px;
+        padding-top: 25px;
+        padding-bottom: 90px;
+        padding-left: 6%;
+        padding-right: 6%;
     }
 
     #MainMenu, footer { visibility: hidden; }
 
-    /* 2. Τυπογραφία */
+    /* 2. Editorial Typography */
     h1, h2, h3 {
-        font-family: "Playfair Display", Georgia, serif !important;
-        color: #173b43 !important;
+        font-family: 'Cormorant Garamond', serif !important;
+        color: #1f3a3d !important;
         font-weight: 500 !important;
         letter-spacing: -0.01em !important;
     }
 
-    h1 { font-size: 3.4rem !important; line-height: 1.15 !important; }
-    h2 { font-size: 2.4rem !important; margin-bottom: 20px !important; }
-    h3 { font-size: 1.5rem !important; }
+    h1 { font-size: 3.8rem !important; line-height: 1.08 !important; }
+    h2 { font-size: 2.6rem !important; margin-bottom: 24px !important; }
+    h3 { font-size: 1.6rem !important; }
 
-    p, label, span { color: #4a5254; line-height: 1.8; font-size: 15px; }
+    p, label, span { color: #525252; line-height: 1.85; font-size: 14.5px; font-weight: 300; }
 
     hr {
         border: none;
-        border-top: 1px solid #dcd4c8;
-        margin-top: 45px;
-        margin-bottom: 45px;
+        border-top: 1px solid #e5dfd5;
+        margin-top: 55px;
+        margin-bottom: 55px;
     }
 
-    /* 3. Λευκές Κάρτες για Αντίθεση με το Φόντο Άμμου */
+    /* 3. Aesthetic Cards & Hover Effects */
     .feature-box, .review-box {
         background: #ffffff !important;
-        border: 1px solid #e2d9cd !important;
-        border-radius: 8px;
-        padding: 30px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1px solid #ece6dc !important;
+        border-radius: 16px;
+        padding: 34px;
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.015);
         min-height: 200px;
     }
 
     .feature-box:hover, .review-box:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 25px rgba(23, 59, 67, 0.08);
-        border-color: #a0784c !important;
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(31, 58, 61, 0.07);
+        border-color: #d1b89d !important;
     }
 
-    .feature-icon { font-size: 27px; margin-bottom: 12px; }
-    .feature-title { color: #173b43; font-family: Georgia, serif; font-size: 21px; margin-bottom: 10px; }
-    .feature-text { color: #666666; line-height: 1.7; font-size: 14px; }
+    .feature-icon { font-size: 24px; margin-bottom: 14px; opacity: 0.85; }
+    .feature-title { color: #1f3a3d; font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 10px; font-weight: 500; }
+    .feature-text { color: #666666; line-height: 1.75; font-size: 14px; font-weight: 300; }
 
     .host-box {
-        background: #173b43 !important;
-        border-radius: 8px;
-        padding: 35px;
+        background: #1f3a3d !important;
+        border-radius: 16px;
+        padding: 40px;
         color: white !important;
-        box-shadow: 0 10px 25px rgba(23, 59, 67, 0.15);
+        box-shadow: 0 14px 30px rgba(31, 58, 61, 0.12);
     }
-    .host-title { color: white !important; font-family: Georgia, serif; font-size: 26px; margin-bottom: 15px; }
-    .host-text { color: #e5eeee !important; line-height: 1.8; font-size: 15px; }
+    .host-title { color: white !important; font-family: 'Cormorant Garamond', serif; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+    .host-text { color: #e1e9e9 !important; line-height: 1.85; font-size: 15px; font-weight: 300; }
 
-    .review-stars { color: #a0784c; font-size: 18px; letter-spacing: 2px; }
-    .review-quote { color: #444444; font-size: 15px; line-height: 1.8; font-style: italic; margin-top: 15px; }
-    .review-author { color: #777777; font-size: 13px; margin-top: 20px; }
+    .review-stars { color: #c27d66; font-size: 15px; letter-spacing: 3px; }
+    .review-quote { color: #3d3d3d; font-size: 15px; line-height: 1.85; font-style: italic; margin-top: 16px; font-family: 'Cormorant Garamond', serif; font-size: 18px; }
+    .review-author { color: #888888; font-size: 12px; margin-top: 22px; letter-spacing: 0.05em; text-transform: uppercase; }
 
-    /* 4. Luxury Metrics */
+    /* 4. Minimal Aesthetic Metrics */
     [data-testid="stMetric"] {
         background: #ffffff !important;
-        border: 1px solid #e2d9cd !important;
-        border-radius: 8px;
-        padding: 18px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        border: 1px solid #ece6dc !important;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.015);
         text-align: center;
     }
 
-    [data-testid="stMetricLabel"] { color: #777777 !important; }
+    [data-testid="stMetricLabel"] { color: #888888 !important; font-size: 12px !important; letter-spacing: 0.06em; text-transform: uppercase; }
 
     [data-testid="stMetricValue"] {
-        color: #173b43 !important;
-        font-family: Georgia, serif;
-        font-size: 2rem !important;
+        color: #1f3a3d !important;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.3rem !important;
+        font-weight: 500;
     }
 
-    /* 5. Κουμπιά */
+    /* 5. Minimalist Buttons */
     .stLinkButton > a, .stButton > button {
-        background: #173b43 !important;
-        color: white !important;
+        background: #1f3a3d !important;
+        color: #ffffff !important;
         border: none !important;
-        border-radius: 6px !important;
-        padding: 0.75rem 1.5rem !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.04em !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 4px 10px rgba(23, 59, 67, 0.12) !important;
+        border-radius: 30px !important;
+        padding: 0.75rem 1.8rem !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.08em !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 12px rgba(31, 58, 61, 0.1) !important;
     }
 
     .stLinkButton > a:hover, .stButton > button:hover {
-        background: #a0784c !important;
-        color: white !important;
+        background: #c27d66 !important;
+        color: #ffffff !important;
         transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(194, 125, 102, 0.25) !important;
     }
 
-    /* 6. Φόρμα Κρατήσεων */
+    /* 6. Form Styling */
     [data-testid="stForm"] {
         background: #ffffff !important;
-        border: 1px solid #e2d9cd !important;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        border: 1px solid #ece6dc !important;
+        border-radius: 16px;
+        padding: 35px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.02);
     }
 
     .section-label {
-        color: #a0784c;
+        color: #c27d66;
         font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
+        font-weight: 600;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
 
-    .gallery-title { font-family: Georgia, serif; color: #173b43; font-size: 21px; margin-top: 12px; margin-bottom: 3px; }
-    .gallery-counter { color: #888888; font-size: 12px; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .gallery-title { font-family: 'Cormorant Garamond', serif; color: #1f3a3d; font-size: 22px; margin-top: 14px; margin-bottom: 2px; }
+    .gallery-counter { color: #999999; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 14px; }
 
-    .footer-title { font-family: Georgia, serif; color: #173b43; font-size: 24px; }
-    .footer-text { color: #777777; line-height: 1.8; }
+    .footer-title { font-family: 'Cormorant Garamond', serif; color: #1f3a3d; font-size: 26px; }
+    .footer-text { color: #888888; line-height: 1.8; font-size: 13px; }
 
     @media (max-width: 768px) {
         .block-container { padding-left: 5%; padding-right: 5%; padding-top: 15px; }
-        h1 { font-size: 2.3rem !important; }
-        h2 { font-size: 1.8rem !important; }
+        h1 { font-size: 2.5rem !important; }
+        h2 { font-size: 1.9rem !important; }
         .feature-box, .review-box { min-height: auto; }
     }
     </style>
@@ -238,8 +240,8 @@ with nav_left:
 with nav_center:
     st.markdown(
         """
-        <div style="text-align:center; padding-top:15px; color:#666666; font-size:13px; letter-spacing:0.04em;">
-            ROOMS · GALLERY · DIRECT BOOKING · LOCATION
+        <div style="text-align:center; padding-top:15px; color:#777777; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;">
+            STAY · GALLERY · DIRECT BOOKING · LOCATION
         </div>
         """,
         unsafe_allow_html=True,
@@ -267,7 +269,6 @@ with hero_left:
         """
     )
 
-    # Φόρμα Γρήγορου Ελέγχου Διαθεσιμότητας
     st.subheader("Direct Reservation Request")
     with st.form("quick_search"):
         col_d1, col_d2, col_g = st.columns(3)
@@ -281,7 +282,7 @@ with hero_left:
         search_submit = st.form_submit_button("CHECK DIRECT AVAILABILITY", use_container_width=True)
         if search_submit:
             st.success(
-                f"Request received for {guests} guests ({check_in.strftime('%d/%m')} - {check_out.strftime('%d/%m')}). Please complete your details in the booking section below!")
+                f"Request received for {guests} guests ({check_in.strftime('%d/%m')} - {check_out.strftime('%d/%m')}). Please complete your details below!")
 
 with hero_right:
     if hotel:
@@ -631,7 +632,7 @@ with r1:
     st.markdown(
         """
         <div class="review-box">
-            <div class="review-stars">★★★★★</div>
+            <div class="review-stars">★ ★ ★ ★ ★</div>
             <div class="review-quote">
                 “The location was unbeatable. Waking up with
                 a sea view made the whole trip feel special.
@@ -648,7 +649,7 @@ with r2:
     st.markdown(
         """
         <div class="review-box">
-            <div class="review-stars">★★★★★</div>
+            <div class="review-stars">★ ★ ★ ★ ★</div>
             <div class="review-quote">
                 “Very clean, quiet, with a large balcony and
                 beautiful sea view. The beach and restaurants
