@@ -68,7 +68,7 @@ bathroom = get_image("bathroom.jpg")
 bathroom1 = get_image("bathroom1.jpg")
 
 # =========================================================
-# AESTHETIC EDITORIAL DESIGN (MINIMAL & BOUTIQUE)
+# AESTHETIC DESIGN WITH WARM SUN FADE BACKGROUND
 # =========================================================
 
 st.markdown(
@@ -79,9 +79,13 @@ st.markdown(
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-    /* 1. Global Soft Linen/Vanilla Background */
+    /* 1. Fine Grain & Warm Sun Fade Aesthetic Background */
     html, body, [data-testid="stAppViewContainer"], .stApp {
-        background-color: #f7f4ee !important;
+        background-color: #f6f3ee !important;
+        background-image: 
+            radial-gradient(at 90% 10%, rgba(228, 213, 196, 0.45) 0px, transparent 50%),
+            radial-gradient(at 10% 90%, rgba(210, 222, 220, 0.35) 0px, transparent 50%) !important;
+        background-attachment: fixed !important;
         color: #2b2b2b !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
@@ -117,9 +121,10 @@ st.markdown(
         margin-bottom: 55px;
     }
 
-    /* 3. Aesthetic Cards & Hover Effects */
+    /* 3. Glassmorphic Aesthetic Cards & Hover Effects */
     .feature-box, .review-box {
-        background: #ffffff !important;
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(8px);
         border: 1px solid #ece6dc !important;
         border-radius: 16px;
         padding: 34px;
@@ -132,6 +137,7 @@ st.markdown(
         transform: translateY(-6px);
         box-shadow: 0 16px 32px rgba(31, 58, 61, 0.07);
         border-color: #d1b89d !important;
+        background: #ffffff !important;
     }
 
     .feature-icon { font-size: 24px; margin-bottom: 14px; opacity: 0.85; }
@@ -149,12 +155,13 @@ st.markdown(
     .host-text { color: #e1e9e9 !important; line-height: 1.85; font-size: 15px; font-weight: 300; }
 
     .review-stars { color: #c27d66; font-size: 15px; letter-spacing: 3px; }
-    .review-quote { color: #3d3d3d; font-size: 15px; line-height: 1.85; font-style: italic; margin-top: 16px; font-family: 'Cormorant Garamond', serif; font-size: 18px; }
+    .review-quote { color: #3d3d3d; font-size: 18px; line-height: 1.85; font-style: italic; margin-top: 16px; font-family: 'Cormorant Garamond', serif; }
     .review-author { color: #888888; font-size: 12px; margin-top: 22px; letter-spacing: 0.05em; text-transform: uppercase; }
 
     /* 4. Minimal Aesthetic Metrics */
     [data-testid="stMetric"] {
-        background: #ffffff !important;
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(8px);
         border: 1px solid #ece6dc !important;
         border-radius: 14px;
         padding: 20px;
@@ -194,7 +201,8 @@ st.markdown(
 
     /* 6. Form Styling */
     [data-testid="stForm"] {
-        background: #ffffff !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px);
         border: 1px solid #ece6dc !important;
         border-radius: 16px;
         padding: 35px;
