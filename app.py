@@ -808,6 +808,7 @@ if sea_images:
             st.rerun()
 
 
+
 # =========================================================
 # HOSTS
 # =========================================================
@@ -816,15 +817,12 @@ st.divider()
 
 st.markdown(
     '<div class="section-label">YOUR HOSTS</div>',
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
 st.header("A warm welcome from Kostas & Maria.")
 
-host_left, host_right = st.columns(
-    [1.1, 1],
-    gap="large"
-)
+host_left, host_right = st.columns([1.1, 1], gap="large")
 
 with host_left:
 
@@ -856,18 +854,31 @@ with host_left:
     )
 
 
-
 with host_right:
 
     st.markdown(
         """
-        <div class="host-box">
+        <div style="
+            background:#173b43;
+            border-radius:6px;
+            padding:35px;
+            color:white;
+        ">
 
-            <div class="host-title">
+            <div style="
+                color:white;
+                font-family:Georgia, 'Times New Roman', serif;
+                font-size:27px;
+                margin-bottom:15px;
+            ">
                 Feel at home in Crete.
             </div>
 
-            <div class="host-text">
+            <div style="
+                color:#e5eeee;
+                line-height:1.8;
+                font-size:15px;
+            ">
                 Personal hospitality, local knowledge and
                 a relaxed seaside atmosphere — from two
                 hosts who genuinely want you to enjoy
@@ -876,12 +887,8 @@ with host_right:
 
         </div>
         """,
-        unsafe_allow_html=True,
+        unsafe_allow_html=True
     )
-
-
-
-
 
 
 
